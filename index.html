@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Weather</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.css" rel="stylesheet">
+ 
+  </head>
+
+    
+  <body id="page-top">
+<div class="top-bar">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-6 d-md-block d-none">
+              <p style="font-size: 20px;margin: auto;">IRELAND WEATHER</p>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex justify-content-md-end justify-content-between">
+                <ul class="list-inline contact-info d-block d-md-none">
+                  <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  
+
+    <header class="masthead text-center text-white d-flex">
+      <div class="container-fluid cont">
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Ireland Weather</strong>
+            </h1>
+            <hr>
+          </div>
+          <div class="col-lg-12 mx-auto">
+              
+              
+           
+              <div class="sbar mat-item">
+               <p class="  mb-5">Enter your City Name and get the details of weather</p>
+              
+                 
+                  <input class="text-line hide" id="city_name" name="city_name" type="text" placeholder="Enter Place">
+                
+                 <div class="row">
+                     <div class="col-lg-2"  style="padding-right: 260px;"></div>
+                     
+                  <div class="col-lg-3">
+                   <input id="city_text" placeholder="Enter your City" class="text-line  pad-10" list=text_editors onkeyup="searchSel()">
+  
+                  </div>
+            
+                        <div class="col-lg-1 pad-10">OR</div>
+                  
+ 
+                  
+                  <div class=" col-lg-3">
+                  <select  class="text-line form-control"  id="city-dropdown" name="city_name">
+    
+                    </select>
+    
+                    
+                  
+                           
+              </div>
+                     </div>
+                  
+                  <div class="row align-self">
+                  
+                   <a class="btn btn-primary btn-xl js-scroll-trigger alignc" id="btn_search">
+                       <img class="imgmini" src="img/search.png"></a>
+                  </div>
+              </div>
+              
+          </div>
+        </div>
+          
+          
+          
+      </div>
+    </header>
+
+
+   
+    
+      
+   
+ 
+ 
+<div class="container">
+  
+    <div class="row pad-40">
+			<div id="first" class="col-sm-12" style="color: white;" >
+			
+			</div>
+		</div>
+    
+    
+  
+    <div id="demo" class="carousel slide" data-ride="carousel" data-interval="false">
+
+  
+</div>
+    
+    
+<div id="charts-div" class=" sbar ">
+    <div id="chartsection"></div>
+    
+    <div id="charts" class="row " >
+    <div id="line-cont" class="col-sm-12 ">
+   <canvas id="line-Chart" class="chcanvas material" ></canvas>
+        </div>
+        
+        <div class="row">
+        <div id="bar-cont" class="col-md-6 mtop">
+            <canvas id="bar-Chart" class="chcanvas2 material " ></canvas>
+        </div>
+            
+            <div id="pie-cont" class="col-md-6 mtop">
+         <canvas id="pie-Chart" class="chcanvas2 material " ></canvas>
+        </div>
+            </div>
+    </div>
+    </div>
+    
+</div>
+      
+
+      <!--MODAL for Map-->
+      
+      <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+     
+      <div class="modal-body" style="padding: 5px;">
+     <div id="mapid"></div>
+      </div>
+      <div class="modal-footer" style="padding: 5px;">
+        <button type="button" class="btn btn-default ft-button" data-dismiss="modal">X</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+      
+  </body>
+
+</html>
+
+
+
+ <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+      <script src="vendor/Chart.bundle.js"></script>
+
+
+
+<!--MAP Files-->
+
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css"
+   crossorigin=""/>
+
+<script src="vendor/leaflet/leaflet.js"
+   crossorigin=""></script>
+
+<!-- Main JavaScript linked -->
+ 
+      
+    <script src="js/main.js"></script>
+
+
+
+<script>
+
+jQuery(document).ready(function() {
+    jQuery(document).on("click", ".mapbtn", function(e) {
+        e.preventDefault();
+        var latLng = jQuery(this).attr("data-latLng");			
+        initialize(latLng);
+    });
+    
+    var mymap;
+    
+    function initialize(latLng) {
+     
+	//remove map if already present	
+    if (mymap != undefined) { mymap.off();mymap.remove(); }  
+    
+	//split latitude and longitude from ','	
+    latLng = latLng.split(",")
+	//create map and setting view from lat & long
+    mymap = L.map('mapid').setView([latLng[0],latLng[1]], 13);    
+        
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWVldDk1MyIsImEiOiJjam53ang3eDUwN3N3M3BtZ2JwNGNiM3A4In0.IFlUWSPtHXHPClAgnra78g', {
+    attribution: '',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoibWVldDk1MyIsImEiOiJjam53ang3eDUwN3N3M3BtZ2JwNGNiM3A4In0.IFlUWSPtHXHPClAgnra78g'
+	}).addTo(mymap);
+        
+        //referesh map after 300 ms
+   setTimeout(function(){mymap.invalidateSize()}, 300);
+    }
+});	
+
+</script>
